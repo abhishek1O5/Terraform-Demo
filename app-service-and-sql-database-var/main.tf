@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "test" {
-  name     = "${var.resource-group-name}"
+  name     = "tarraform-resouces-abhishek"
   location = "${var.location}"
 }
 
@@ -15,7 +15,7 @@ resource "azurerm_app_service_plan" "test" {
 }
 
 resource "azurerm_app_service" "test" {
-  name                = "${var.app-service-name}"
+  name                = "tarraform-resouces-abhi"
   location            = "${azurerm_resource_group.test.location}"
   resource_group_name = "${azurerm_resource_group.test.name}"
   app_service_plan_id = "${azurerm_app_service_plan.test.id}"
