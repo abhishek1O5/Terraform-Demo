@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "test1" {
 resource "azurerm_app_service_plan" "test1" {
   name                = "example-appserviceplan"
   location            = "${azurerm_resource_group.test1.location}"
-  resource_group_name = "${azurerm_resource_group.test1.name}"
+  resource_group_name = "tarraform-resouces-abhishek"
 
   sku {
     tier = "Standard"
@@ -17,7 +17,7 @@ resource "azurerm_app_service_plan" "test1" {
 resource "azurerm_app_service" "test1" {
   name                = "tarraform-resouces-abhi"
   location            = "${azurerm_resource_group.test1.location}"
-  resource_group_name = "${azurerm_resource_group.test1.name}"
+  resource_group_name = "tarraform-resouces-abhishek"
   app_service_plan_id = "${azurerm_app_service_plan.test1.id}"
 
   site_config {
@@ -38,7 +38,7 @@ resource "azurerm_app_service" "test1" {
 
 resource "azurerm_sql_server" "test" {
   name                         = "terraform-sqlserver"
-  resource_group_name          = "${azurerm_resource_group.test1.name}"
+  resource_group_name          = "tarraform-resouces-abhishek"
   location                     = "${azurerm_resource_group.test1.location}"
   version                      = "12.0"
   administrator_login          = "houssem"
@@ -47,7 +47,7 @@ resource "azurerm_sql_server" "test" {
 
 resource "azurerm_sql_database" "test1" {
   name                = "terraform-sqldatabase"
-  resource_group_name = "${azurerm_resource_group.test1.name}"
+  resource_group_name = "tarraform-resouces-abhishek"
   location            = "${azurerm_resource_group.test1.location}"
   server_name         = "${azurerm_sql_server.test1.name}"
 
